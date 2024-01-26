@@ -7,7 +7,7 @@ const getLibrary = async (req, res) =>{
         const connection = await getConnection();
         const result = await connection.query(queryGetLibrary);
         if(result){
-            res.json({response: result, success: true});
+            res.json({response: result});
         } else {
             res.json({response:'Ha ocurrido un error inesperado.', success: false});
         }

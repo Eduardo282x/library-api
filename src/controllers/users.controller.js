@@ -36,7 +36,7 @@ const editUsers = async (req, res) =>{
     try {
         const { Id, Name, Lastname, Username } = req.body;
         const connection = await getConnection();
-        const result = await connection.query(`UPDATE ${tableName} set Name='${Name}' Lastname='${Lastname}' Username='${Username}' WHERE Id=${Id}`);
+        const result = await connection.query(`UPDATE ${tableName} set Name='${Name}', Lastname='${Lastname}', Username='${Username}' WHERE Id=${Id}`);
         if(result){
             res.json({message:'Usuario Actualizado.', success: true,});
         } else {

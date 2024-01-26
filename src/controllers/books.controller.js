@@ -49,7 +49,7 @@ const editBooksThesis = async (req, res) =>{
     try {
         const { Id, Title,Author,Age,Amount } = req.body;
         const connection = await getConnection();
-        const result = await connection.query(`UPDATE ${tableName} set Title='${Title}' Author='${Author}' Age='${Age}', Amount='${Amount}' WHERE Id= '${Id}'`);
+        const result = await connection.query(`UPDATE ${tableName} set Title='${Title}', Author='${Author}', Age='${Age}', Amount='${Amount}' WHERE Id= '${Id}'`);
         if(result){
             res.json({message:'Usuario Actualizado.', success: true,});
         } else {
