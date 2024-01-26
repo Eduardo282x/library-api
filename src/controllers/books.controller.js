@@ -1,6 +1,18 @@
 import { getConnection }  from '../database/database'
 
 const tableName = 'bookstest'
+const getAll = async (req, res) =>{
+    try {
+        const connection = await getConnection();
+        const result = await connection.query(`SELECT * FROM ${tableName}`);
+        res.json({response: result});
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500)
+        res.send(err.message)
+    }
+}
 const getBooks = async (req, res) =>{
     try {
         const connection = await getConnection();
@@ -83,6 +95,7 @@ const deleteBooksThesis = async (req, res) =>{
 
 
 export const methods = {
+    getAll,
     getBooks,
     getThesis,
     addBooksThesis,

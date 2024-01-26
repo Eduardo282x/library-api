@@ -3,6 +3,7 @@ import { methods as bookstestControllers } from "../controllers/books.controller
 
 const router=Router();
 
+router.get('/', bookstestControllers.getBooks);
 router.get('/book', bookstestControllers.getBooks);
 router.get('/thesis', bookstestControllers.getThesis);
 router.post('/add', bookstestControllers.addBooksThesis);
